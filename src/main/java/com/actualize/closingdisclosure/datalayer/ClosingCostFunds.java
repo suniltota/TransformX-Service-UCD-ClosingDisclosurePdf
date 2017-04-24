@@ -1,6 +1,10 @@
 package com.actualize.closingdisclosure.datalayer;
 
-
+/**
+ * This class defines ClosingCostFunds element in MISMO xml  
+ * @author sboragala
+ *
+ */
 public class ClosingCostFunds extends Expenses {
 	private String  totalAmount = "";
 

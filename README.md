@@ -18,6 +18,6 @@ example: java -jar target/LoanEstimatePdf.jar --server.port=9090
 
 API to generate Loan Estimate PDF(/actualize/transformx/documents/ucd/cd/pdf) with input as Closing Disclosure XML 
 
-syntax : <server address with port>/actualize/transformx/documents/ucd/cd/pdf; method :POST; Header: Content-Type:application/xml
+syntax : *server address with port*/actualize/transformx/documents/ucd/cd/pdf; method :POST; Header: Content-Type:application/xml
 
-example: http://localhost:9012/actualize/transformx/documents/ucd/cd/pdf ; method: POST; Header: Content-Type:application/xml
+example: http://localhost:9013/actualize/transformx/documents/ucd/cd/pdf ; method: POST; Header: Content-Type:application/xml

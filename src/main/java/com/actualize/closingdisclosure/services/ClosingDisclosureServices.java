@@ -2,6 +2,8 @@ package com.actualize.closingdisclosure.services;
 
 import java.util.List;
 
+import com.actualize.closingdisclosure.domainmodels.PDFResponse;
+
 
 public interface ClosingDisclosureServices {
 	

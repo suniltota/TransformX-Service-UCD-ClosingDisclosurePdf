@@ -2,8 +2,6 @@ package com.actualize.closingdisclosure.domainmodels;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import com.actualize.closingdisclosure.datalayer.ClosingMap;
 import com.actualize.closingdisclosure.datalayer.InputData;
@@ -14,15 +12,15 @@ import com.actualize.closingdisclosure.pdfbuilder.BoxedCharacter;
 import com.actualize.closingdisclosure.pdfbuilder.Color;
 import com.actualize.closingdisclosure.pdfbuilder.FormattedText;
 import com.actualize.closingdisclosure.pdfbuilder.Grid;
+import com.actualize.closingdisclosure.pdfbuilder.Grid.Dimension;
+import com.actualize.closingdisclosure.pdfbuilder.Grid.Position;
 import com.actualize.closingdisclosure.pdfbuilder.Page;
 import com.actualize.closingdisclosure.pdfbuilder.Paragraph;
 import com.actualize.closingdisclosure.pdfbuilder.Section;
 import com.actualize.closingdisclosure.pdfbuilder.Text;
-import com.actualize.closingdisclosure.pdfbuilder.Typeface;
-import com.actualize.closingdisclosure.pdfbuilder.Grid.Dimension;
-import com.actualize.closingdisclosure.pdfbuilder.Grid.Position;
 import com.actualize.closingdisclosure.pdfbuilder.TextBox.Direction;
 import com.actualize.closingdisclosure.pdfbuilder.TextBox.VerticalAlignment;
+import com.actualize.closingdisclosure.pdfbuilder.Typeface;
 
 public class ClosingInformationSection implements Section {
 	private final Text TITLE_INFO        = new Text(Color.BLACK, 10, Typeface.CALIBRI_OBLIQUE);

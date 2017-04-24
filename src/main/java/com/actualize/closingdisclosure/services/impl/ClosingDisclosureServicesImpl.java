@@ -5,15 +5,21 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.actualize.closingdisclosure.ClosingDisclosurePdfApplication;
 import com.actualize.closingdisclosure.datalayer.InputData;
 import com.actualize.closingdisclosure.datalayer.PopulateInputData;
+import com.actualize.closingdisclosure.domainmodels.PDFResponse;
 import com.actualize.closingdisclosure.domainmodels.UniformDisclosureBuilder;
 import com.actualize.closingdisclosure.domainmodels.UniformDisclosureBuilderSeller;
 import com.actualize.closingdisclosure.services.ClosingDisclosureServices;
-import com.actualize.closingdisclosure.services.PDFResponse;
 
 public class ClosingDisclosureServicesImpl implements ClosingDisclosureServices {
 
+	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePdfApplication.class);
+	
 	@Override
 	public List<PDFResponse> createPDF(String xmlDoc) throws Exception {
 		 PopulateInputData reader = new PopulateInputData();

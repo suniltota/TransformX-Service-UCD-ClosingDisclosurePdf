@@ -1,5 +1,10 @@
 package com.actualize.closingdisclosure.datalayer;
 
+/**
+ * This class defines CashToClose element in MISMO xml 
+ * @author sboragala
+ *
+ */
 public class CashToClose {
 
 	private boolean isAmountChangedIndicator = false;

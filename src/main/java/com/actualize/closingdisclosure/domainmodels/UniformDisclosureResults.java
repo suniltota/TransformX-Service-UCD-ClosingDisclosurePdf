@@ -25,11 +25,23 @@ import org.w3c.dom.Element;
 import com.actualize.closingdisclosure.datalayer.InputData;
 import com.actualize.closingdisclosure.datalayer.PopulateInputData;
 import com.actualize.closingdisclosure.datavalidation.MISMOValidation;
-
+/**
+ * This class defines all the functionalities of inserting pdf results into pdf Document 
+ * @author sboragala
+ *
+ */
 public class UniformDisclosureResults {
 	public static final Encoder encoder = Base64.getEncoder();
 	public static final Decoder decoder = Base64.getDecoder();
 	
+	/**
+	 * validates the MISMO XML
+	 * @param in
+	 * @param validate
+	 * @return Document
+	 * @throws ParserConfigurationException
+	 * @throws IOException
+	 */
 	public Document run(InputStream in, boolean validate) throws ParserConfigurationException, IOException {
 		// Create the results document and root element ("Results")
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -82,6 +94,13 @@ public class UniformDisclosureResults {
     	return xmldoc;
 	}
 	
+	/**
+	 * populates all the elements in the MISMO XML
+	 * @param in
+	 * @return Document
+	 * @throws ParserConfigurationException
+	 * @throws IOException
+	 */
 	public Document run(Document in) throws ParserConfigurationException, IOException {
 		// Create the results document and root element ("Results")
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -119,7 +138,12 @@ public class UniformDisclosureResults {
     	return xmldoc;
 	}
 
-
+	/**
+	 * creates pdf  
+	 * @param data
+	 * @param xmldoc
+	 * @param rootElement
+	 */
 	private void insertPdfResults(InputData data, Document xmldoc, Element rootElement) {
  
 		// Append UniformDisclosureResults and UniformDisclosureResults/Status elements
@@ -169,6 +193,13 @@ public class UniformDisclosureResults {
 		}
 	}
 	
+	/**
+	 * inserts errors 
+	 * @param e
+	 * @param xmldoc
+	 * @param documentElement
+	 * @param statusElement
+	 */
 	private void insertError(Exception e, Document xmldoc, Element documentElement, Element statusElement) {
 
         // Set UniformDisclosureResults/Status to Error
@@ -198,7 +229,13 @@ public class UniformDisclosureResults {
 		errorElement.appendChild(stackElement);
 		stackElement.appendChild(xmldoc.createCDATASection("\n" + getStackTrace(e)));
 	}
-
+	
+	/**
+	 * converts the inputstream to bytearrayoutput stream
+	 * @param in
+	 * @return ByteArrayOutputStream
+	 * @throws IOException
+	 */
 	public static ByteArrayOutputStream inputStreamToByteArrayOutputStream(InputStream in) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
@@ -209,7 +246,12 @@ public class UniformDisclosureResults {
 		baos.flush();
 		return baos;
 	}
-
+	
+	/**
+	 * formats the exception message
+	 * @param aThrowable
+	 * @return string
+	 */
 	public static String getStackTrace(Throwable aThrowable) {
 		StringBuilder result = new StringBuilder();
 		for (StackTraceElement element : aThrowable.getStackTrace()) {

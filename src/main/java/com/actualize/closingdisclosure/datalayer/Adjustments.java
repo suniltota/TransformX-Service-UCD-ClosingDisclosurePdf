@@ -1,5 +1,9 @@
 package com.actualize.closingdisclosure.datalayer;
-
+/**
+ * This class defines Adjustments element in MISMO xml 
+ * @author sboragala
+ *
+ */
 
 public class Adjustments extends Expenses {
 

@@ -2,7 +2,11 @@ package com.actualize.closingdisclosure.datalayer;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * This class defines to get the values from MISMO XML associated to elements of MISMO XML
+ * @author sboragala
+ *
+ */
 public class ClosingMap {
     private Map<String , String> closingMap = new HashMap<String, String>();
     

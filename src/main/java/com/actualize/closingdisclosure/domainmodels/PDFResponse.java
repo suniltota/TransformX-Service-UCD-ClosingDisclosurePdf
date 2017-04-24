@@ -1,4 +1,4 @@
-package com.actualize.closingdisclosure.services;
+package com.actualize.closingdisclosure.domainmodels;
 
 public class PDFResponse {
 
