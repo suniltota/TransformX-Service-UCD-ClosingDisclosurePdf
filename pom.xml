@@ -6,7 +6,7 @@
 	<groupId>com.actualize</groupId>
 	<artifactId>TransformX-Service-UCD-ClosingDisclosurePdf</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>TransformX-Service-UCD-ClosingDisclosurePdf</name>
 	<description>Project for generating Closing Disclosure PDF</description>
@@ -50,7 +50,7 @@
 	</dependencies>
 
 	<build>
-	<finalName>CD</finalName>
+	<finalName>ClosingDisclosurePDF</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -19,7 +19,7 @@ import com.actualize.closingdisclosure.services.ClosingDisclosureServices;
  * 
  */
 @RestController
-@RequestMapping(value="/actualize/transformx/documents/ucd/")
+@RequestMapping(value="/actualize/transformx/documents/ucd/cd")
 public class ClosingDisclosureApiImpl {
 	
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosureApiImpl.class);
@@ -36,11 +36,6 @@ public class ClosingDisclosureApiImpl {
     @RequestMapping(value = "/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@RequestBody String xmldoc) throws Exception {
         return closingDisclosureServices.createPDF(xmldoc);
-    }
-    
-    @RequestMapping(value = "/status", method = { RequestMethod.GET })
-    public String checkStatus() throws Exception {
-        return "The service for generating PDF for Closing Disclosure is running and ready to accept your requests";
     }
 
 }

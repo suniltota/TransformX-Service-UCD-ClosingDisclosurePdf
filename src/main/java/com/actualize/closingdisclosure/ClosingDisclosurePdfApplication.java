@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ImportResource;
 
 /**
@@ -14,7 +13,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @SpringBootApplication(scanBasePackages = "com.actualize.closingdisclosure")
 @ImportResource("classpath:config.xml")
-public class ClosingDisclosurePdfApplication extends SpringBootServletInitializer {
+public class ClosingDisclosurePdfApplication {
 	
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePdfApplication.class);
 	
