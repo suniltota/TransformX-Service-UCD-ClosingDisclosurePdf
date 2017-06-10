@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,10 +31,14 @@ public class ClosingDisclosurePDFApiImpl {
 	 * @return PDF document 
 	 * @throws Exception
 	 */
-    @RequestMapping(value = "/pdf", method = { RequestMethod.POST })
-    public List<PDFResponse> saveModifiedUCD(@RequestBody String xmldoc) throws Exception {
+    @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
+    public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
     	ClosingDisclosureServicesImpl closingDisclosureServicesImpl = new ClosingDisclosureServicesImpl();
         return closingDisclosureServicesImpl.createPDF(xmldoc);
     }
 
+    @RequestMapping(value = "/{version}/ping", method = { RequestMethod.GET })
+    public String status(@PathVariable String version) throws Exception {
+        return "The service for generating PDF for closing disclosure is running and ready to accept your request";
+    }
 }
