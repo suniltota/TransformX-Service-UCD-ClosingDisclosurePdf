@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.actualize.mortgage.domainmodels.PDFResponse;
-import com.actualize.mortgage.services.impl.ClosingDisclosureServicesImpl;
+import com.actualize.mortgage.services.impl.ClosingDisclosurePDFServicesImpl;
 /**
  * This class is the rest controller which defines all the APIs associated for Closing Disclosure PDF generation 
  * @author sboragala
@@ -33,7 +33,7 @@ public class ClosingDisclosurePDFApiImpl {
 	 */
     @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
-    	ClosingDisclosureServicesImpl closingDisclosureServicesImpl = new ClosingDisclosureServicesImpl();
+    	ClosingDisclosurePDFServicesImpl closingDisclosureServicesImpl = new ClosingDisclosurePDFServicesImpl();
         return closingDisclosureServicesImpl.createPDF(xmldoc);
     }
 
