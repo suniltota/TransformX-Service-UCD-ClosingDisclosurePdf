@@ -24,7 +24,6 @@ public class ClosingDisclosurePDFApiImpl {
 	
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePDFApiImpl.class);
 	
-	
 	/**
 	 * generates PDF for closing disclosure on giving xml as input in String format
 	 * @param xmldoc

@@ -16,8 +16,12 @@ syntax : java -jar *location of the jar file* --server.port=*server port number*
  
 example: java -jar target/LoanEstimatePdf.jar --server.port=9090
 
-API to generate Loan Estimate PDF(/actualize/transformx/documents/ucd/cd/pdf) with input as Closing Disclosure XML 
+API to generate Loan Estimate PDF(/actualize/transformx/documents/ucd/cd/{version}/pdf) with input as Closing Disclosure XML 
 
-syntax : *server address with port*/actualize/transformx/documents/ucd/cd/pdf; method :POST; Header: Content-Type:application/xml
+syntax : *server address with port*/actualize/transformx/documents/ucd/cd/v1/pdf; method :POST; Header: Content-Type:application/xml
+
+API to check status of service(/actualize/transformx/documents/ucd/cd/{version}/ping)
+
+syntax : *server address with port*/actualize/transformx/documents/ucd/cd/v1/ping; method: GET;
 
 example: http://localhost:9013/actualize/transformx/documents/ucd/cd/pdf ; method: POST; Header: Content-Type:application/xml
