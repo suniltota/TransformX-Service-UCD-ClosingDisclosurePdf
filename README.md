@@ -2,13 +2,13 @@
 
 This project defines the code for generating the PDF for Closing Disclosure
 
-This service runs on port :9013
+This service runs on port: 9013
 
 To run the server ,enter into project folder and run
 
 mvn spring-boot:run (or) java -jar *location of the jar file*
 
-The above line will start the server at port 9012
+The above line will start the server at port 9013
 
 If you want to change the port .Please start th server as mentioned below 
 

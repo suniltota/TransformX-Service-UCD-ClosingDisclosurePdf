@@ -25,19 +25,28 @@ public class ClosingDisclosurePDFApiImpl {
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePDFApiImpl.class);
 	
 	/**
-	 * generates PDF for closing disclosure on giving xml as input in String format
+	 * generates PDF for closing disclosure on giving xml as input in String format 
+	 * @param version
 	 * @param xmldoc
-	 * @return PDF document 
+	 * @return pdf document
 	 * @throws Exception
 	 */
     @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
+    	LOG.info("Service call: /pdf for CD");
     	ClosingDisclosurePDFServicesImpl closingDisclosureServicesImpl = new ClosingDisclosurePDFServicesImpl();
         return closingDisclosureServicesImpl.createPDF(xmldoc);
     }
-
+    
+    /**
+     * checks the status of the service
+     * @param version
+     * @return String
+     * @throws Exception
+     */
     @RequestMapping(value = "/{version}/ping", method = { RequestMethod.GET })
     public String status(@PathVariable String version) throws Exception {
+    	LOG.info("Service call: /ping for CD");
         return "The service for generating PDF for closing disclosure is running and ready to accept your request";
     }
 }
