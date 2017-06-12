@@ -14,13 +14,11 @@ import com.actualize.mortgage.datalayer.PopulateInputData;
 import com.actualize.mortgage.domainmodels.PDFResponse;
 import com.actualize.mortgage.domainmodels.UniformDisclosureBuilder;
 import com.actualize.mortgage.domainmodels.UniformDisclosureBuilderSeller;
-import com.actualize.mortgage.services.ClosingDisclosureServices;
 
-public class ClosingDisclosureServicesImpl implements ClosingDisclosureServices {
+public class ClosingDisclosurePDFServicesImpl {
 
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePdfApplication.class);
 	
-	@Override
 	public List<PDFResponse> createPDF(String xmlDoc) throws Exception {
 		 PopulateInputData reader = new PopulateInputData();
 		    List<InputData> inputData = reader.getData(new ByteArrayInputStream(xmlDoc.getBytes("utf-8")));
