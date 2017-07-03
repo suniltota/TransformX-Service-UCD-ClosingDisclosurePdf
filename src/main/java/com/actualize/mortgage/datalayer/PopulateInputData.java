@@ -787,7 +787,7 @@ public class PopulateInputData {
 				// label - type
 				//feeLocal.setType(helperGetElementValues(feeElement, "FeeType"));
 				String strType = helperGetElementValues( feeElement, "FeeType");
-				if ("Other".equalsIgnoreCase("strType"))
+				if ("Other".equalsIgnoreCase(strType))
 					strType = helperGetElementValues( feeElement, "FeeTypeOtherDescription");
 				feeLocal.setType(strType);
 				
