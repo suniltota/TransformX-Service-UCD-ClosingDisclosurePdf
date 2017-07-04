@@ -120,7 +120,7 @@ public class SummariesOfTransactionsSection implements Section {
 								"HomeownersInsurancePremium","InterestOnLoanAssumption","MortgageInsurancePremium","PastDuePropertyTax",
 								"RentFromSubjectProperty","StatePropertyTax","Utilities","VolcanoInsurancePremium","WindAndStormInsurancePremium","Other"};
 		String paidAlready   =  "ProceedsOfSubordinateLiens,SatisfactionOfSubordinateLien,";
-		String liabilityFromSeller = "DelinquentTaxes,HELOC,TaxLien,Taxes,ThirdPositionMortgage,Other";
+		String[] liabilityFromSeller = {"CollectionsJudgmentsAndLiens", "DeferredStudentLoan", "DelinquentTaxes", "Garnishments", "HELOC", "Installment", "Open30DayChargeAccount", "Other", "PersonalLoan", "Revolving", "Taxes", "TaxLien", "ThirdPositionMortgageLien", "UnsecuredHomeImprovementLoanInstallment"};
 //		String sellersFees   =  "CollectionsJudgmentsAndLiens,DeferredStudentLoan,Garnishments,Installment,Open30DayChargeAccount,PersonalLoan"
 //								+"Revolving,UnsecuredHomeImprovementLoanInstallment";
 //		String sellersAdjustments = "RepairCompletionEscrowHoldback,SatisfactionOfSubordinateLien,TenantSecurityDeposit,TradeEquity"
@@ -819,7 +819,7 @@ public class SummariesOfTransactionsSection implements Section {
 
 			//N.06 through N.07
 			for (Liabilities liabilityLocal:liabilityList) {
-				if (liabilityLocal.getIDSection().equalsIgnoreCase("DueFromSellerAtClosing") && liabilityFromSeller.contains(liabilityLocal.getType())) {
+				if (liabilityLocal.getIDSection().equalsIgnoreCase("DueFromSellerAtClosing") && Arrays.asList(liabilityFromSeller).contains(liabilityLocal.getType())) {
 					grid.setCellText(++row, c2n, new FormattedText(String.format("%02d", ++currentPrintNumber), Text.TABLE_NUMBER));
 					grid.setCellText(row, c2l, new FormattedText(liabilityLocal.getLabel(), Text.TABLE_TEXT));
 					grid.setCellText(row, c2v, new FormattedText(StringFormatter.DOLLARS.formatString(liabilityLocal.getPayoffAmount()), Text.TABLE_TEXT));
