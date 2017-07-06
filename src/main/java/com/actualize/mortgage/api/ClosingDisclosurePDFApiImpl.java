@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.actualize.mortgage.domainmodels.PDFResponse;
 import com.actualize.mortgage.services.impl.ClosingDisclosurePDFServicesImpl;
+import com.actualize.mortgage.services.impl.IClosingDisclosurePDFServices;
 /**
  * This class is the rest controller which defines all the APIs associated for Closing Disclosure PDF generation 
  * @author sboragala
@@ -24,6 +26,8 @@ public class ClosingDisclosurePDFApiImpl {
 	
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePDFApiImpl.class);
 	
+	@Autowired
+	private IClosingDisclosurePDFServices closingDisclosurePDFServices;
 	/**
 	 * generates PDF for closing disclosure on giving xml as input in String format 
 	 * @param version
@@ -34,8 +38,7 @@ public class ClosingDisclosurePDFApiImpl {
     @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
     	LOG.info("Service call: /pdf for CD");
-    	ClosingDisclosurePDFServicesImpl closingDisclosureServicesImpl = new ClosingDisclosurePDFServicesImpl();
-        return closingDisclosureServicesImpl.createPDF(xmldoc);
+        return closingDisclosurePDFServices.createPDF(xmldoc);
     }
     
     /**

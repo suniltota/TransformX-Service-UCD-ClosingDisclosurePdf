@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import com.actualize.mortgage.ClosingDisclosurePdfApplication;
 import com.actualize.mortgage.datalayer.InputData;
@@ -19,7 +20,8 @@ import com.actualize.mortgage.domainmodels.UniformDisclosureBuilderSeller;
  * @author sboragala
  *
  */
-public class ClosingDisclosurePDFServicesImpl {
+@Service
+public class ClosingDisclosurePDFServicesImpl implements IClosingDisclosurePDFServices{
 
 	private static final Logger LOG = LogManager.getLogger(ClosingDisclosurePdfApplication.class);
 	/**
