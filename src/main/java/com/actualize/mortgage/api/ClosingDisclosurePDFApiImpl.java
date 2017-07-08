@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,7 @@ public class ClosingDisclosurePDFApiImpl {
 	 */
     @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
-    	LOG.info("Service call: /pdf for CD");
+    	LOG.info("user "+SecurityContextHolder.getContext().getAuthentication().getName()+" used Service: CD MISMO XML to CD PDF");
         return closingDisclosurePDFServices.createPDF(xmldoc);
     }
     
