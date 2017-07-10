@@ -1329,10 +1329,10 @@ public class PopulateInputData {
 				"CeilingRatePercent", "FirstRateChangeMonthsCount",
 				"FloorRatePercent", "MarginRatePercent");
 
-		helperGetContainer(thisRoot, closingMap, "LATE_CHARGE_RULE",
-				"LateChargeAmount", "LateChargeGracePeriodDaysCount",
-				"LateChargeMaximumAmount","LateChargeMinimumAmount",
-				"LateChargeRatePercent", "LateChargeType");
+		helperGetContainer(thisRoot, closingMap, "gse:LATE_CHARGE_RULE",
+				"gse:LateChargeAmount", "gse:LateChargeGracePeriodDaysCount",
+				"gse:LateChargeMaximumAmount","gse:LateChargeMinimumAmount",
+				"gse:LateChargeRatePercent", "gse:LateChargeType");
 
 		helperGetContainer(thisRoot, closingMap, "LOAN_DETAIL",
 				"AssumabilityIndicator", "BalloonIndicator",
@@ -1560,7 +1560,10 @@ public class PopulateInputData {
 		// first array sting element is the name of the container subsequent
 		// elements are the nodes
 		if (thisRoot != null && xmlElements != null) {
-			containerList = thisRoot.getElementsByTagName(NS + xmlElements[0]);
+			if(!xmlElements[0].contains(":"))
+				containerList = thisRoot.getElementsByTagName(NS + xmlElements[0]);
+			else
+				containerList = thisRoot.getElementsByTagName(xmlElements[0]);
 			// System.err.println("item:"+containerList.item(0));
 			if (containerList != null && containerList.getLength() > 0)
 				containerElement = (Element) containerList.item(0);

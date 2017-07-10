@@ -139,7 +139,7 @@ public enum StringFormatter {
 			outStr = String.valueOf(-doubleValue(inStr));
 			break;
 		case STRINGCLEAN:
-			outStr = inStr.trim().replaceAll("\\s+"," ").replaceAll("\\u2018|\\u2019|u00B4","�");
+			outStr = inStr.trim().replaceAll("\\s+"," ").replaceAll("\\u2018|\\u2019|\\u00B4","'");
 			break;
 		case MONTH:
 			switch (inStr) {

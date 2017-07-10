@@ -93,11 +93,11 @@ public class WritePayoffsPayments implements Section {
 				dataGrid.setCellText(row, 0, new FormattedText(String.format("%02d", lineNumber++), Text.TABLE_NUMBER));
 				dataGrid.getCell(row,1).setVerticalAlignment(VerticalAlignment.MIDDLE);
 				if(((InputData)inputData).isDocsDirect()){
-					dataGrid.setCellText(row, 1, new FormattedText(liabilityLocal.getLabel(),TABLE_TEXT_NEW));
+					dataGrid.setCellText(row, 1, new FormattedText(StringFormatter.STRINGCLEAN.formatString(liabilityLocal.getLabel()),TABLE_TEXT_NEW));
 				}else if (liabilityLocal.isPayoffPartialIndicator() == true){
-					dataGrid.setCellText(row, 1, new FormattedText(liabilityLocal.getFullName()+" to paydown "+liabilityLocal.getLabel(),TABLE_TEXT_NEW));
+					dataGrid.setCellText(row, 1, new FormattedText(StringFormatter.STRINGCLEAN.formatString(liabilityLocal.getFullName())+" to paydown "+liabilityLocal.getLabel(),TABLE_TEXT_NEW));
 				}else{
-					dataGrid.setCellText(row, 1, new FormattedText(liabilityLocal.getFullName()+" for payoff "+liabilityLocal.getLabel(),TABLE_TEXT_NEW));
+					dataGrid.setCellText(row, 1, new FormattedText(StringFormatter.STRINGCLEAN.formatString(liabilityLocal.getFullName())+" for payoff "+liabilityLocal.getLabel(),TABLE_TEXT_NEW));
 				}
 				//dataGrid.setCellText(row, 2, new FormattedText("For "+liabilityLocal.getLabel(),TABLE_TEXT_NEW));
 				dataGrid.getCell(row,3).setVerticalAlignment(VerticalAlignment.MIDDLE);

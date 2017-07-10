@@ -124,34 +124,34 @@ public class LoanDisclosuresSection implements Section {
 		//17.3
 		para = new Paragraph();
 		para.append(new FormattedText("If your payment is more than ", TEXT))
-			.append(new FormattedText(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeGracePeriodDaysCount"), TEXT_ITALICS));
-		String lateChargeType = closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeType");
+			.append(new FormattedText(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeGracePeriodDaysCount"), TEXT_ITALICS));
+		String lateChargeType = closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeType");
 		if (lateChargeType.equalsIgnoreCase("NoLateCharges"))
 			para.append(new FormattedText(" days late, your lender will not charge a late fee.", TEXT));
 		else {
-			String maximum = closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeMaximumAmount");
-			String minimum = closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeMinimumAmount");
+			String maximum = closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeMaximumAmount");
+			String minimum = closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeMinimumAmount");
 			para.append(new FormattedText(" days late, your lender will charge a late fee of ", TEXT));
-			if (!lateChargeType.equalsIgnoreCase("FlatDollarAmount") && !closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeAmount").equals(""))
-				para.append(new FormattedText(String.format("$%.2f or ", Double.valueOf(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeAmount"))), TEXT_ITALICS));
+			if (!lateChargeType.equalsIgnoreCase("FlatDollarAmount") && !closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeAmount").equals(""))
+				para.append(new FormattedText(String.format("$%.2f or ", Double.valueOf(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeAmount"))), TEXT_ITALICS));
 			switch (lateChargeType) {
 			case "FlatDollarAmount":
-				para.append(new FormattedText(String.format("$%.2f", Double.valueOf(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeAmount"))) + " per month", TEXT_ITALICS));
+				para.append(new FormattedText(String.format("$%.2f", Double.valueOf(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeAmount"))) + " per month", TEXT_ITALICS));
 				break;
 			case "PercentageOfDelinquentInterest":
-				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeRatePercent")) + " of the delinquent interest", TEXT_ITALICS));
+				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeRatePercent")) + " of the delinquent interest", TEXT_ITALICS));
 				break;
 			case "PercentOfPrincipalAndInterest":	
-				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeRatePercent")) + " of the monthly principal and interest payment", TEXT_ITALICS));
+				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeRatePercent")) + " of the monthly principal and interest payment", TEXT_ITALICS));
 				break;
 			case "PercentageOfPrincipalBalance":	
-				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeRatePercent")) + " of the principal balance", TEXT_ITALICS));
+				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeRatePercent")) + " of the principal balance", TEXT_ITALICS));
 				break;
 			case "PercentageOfNetPayment":
-				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeRatePercent")) + " of the net payment", TEXT_ITALICS));
+				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeRatePercent")) + " of the net payment", TEXT_ITALICS));
 				break;
 			case "PercentageOfTotalPayment":
-				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("LATE_CHARGE_RULE.LateChargeRatePercent")) + " of the total payment", TEXT_ITALICS));
+				para.append(new FormattedText(StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("gse:LATE_CHARGE_RULE.gse:LateChargeRatePercent")) + " of the total payment", TEXT_ITALICS));
 			}
 			if ("".equals(maximum)) {
 				if (!"".equals(minimum))

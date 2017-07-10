@@ -106,7 +106,7 @@ public class AdjustableRateSection implements Section {
 			try {
 				int month = Integer.parseInt(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.FirstRateChangeMonthsCount"));
 				if (month > 0 )
-					firstChange = StringFormatter.INTEGERSUFFIX.formatString(String.valueOf(month));
+					firstChange = StringFormatter.INTEGERSUFFIX.formatString(String.valueOf(month+1));
 			} catch (Exception e) {
 				// do nothing
 			}

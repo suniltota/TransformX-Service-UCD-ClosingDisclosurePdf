@@ -177,7 +177,7 @@ public class LoanTermsSection implements Section {
 					.append(new FormattedText("as high as " + StringFormatter.PERCENT.formatString(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.CeilingRatePercent")),
 							TABLE_TEXT_BOLD))
 					.append(new FormattedText(" in ", TABLE_TEXT))
-					.append(new FormattedText("year " + StringFormatter.YEARS.formatString(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.CeilingRatePercentEarliestEffectiveMonthsCount")),
+					.append(new FormattedText("year " + StringFormatter.ROUNDUPYEARS.formatString(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.CeilingRatePercentEarliestEffectiveMonthsCount")),
 							TABLE_TEXT));
 			Paragraph text4_2_4 = (new Paragraph())
 					.append(Bullet.BULLET)
