@@ -111,8 +111,16 @@ public class ClosingInformationSection implements Section {
 			  closingDataGrid.setLineWrap(row, Dimension.ROW, false);
 		   }
 		}
+		else if(!subjectProperty.getUnparsedLegalDescription().equals(""))
+		{
+		   closingDataGrid.setCellText(row, 1, new FormattedText(subjectProperty.getUnparsedLegalDescription(), TABLE_TEXT));
+		   if (closingMap.getClosingMapValue("TERMS_OF_LOAN.LoanPurposeType").equals("Refinance")) {
+			  closingDataGrid.setLineWrap(row, Dimension.ROW, false);
+		   }
+		}
+			   
 		//1.7
-		if (!subjectProperty.getAddressLine().equals(""))
+		if (!subjectProperty.getAddressLine().equals("") || !subjectProperty.getUnparsedLegalDescription().equals(""))
 			row++;
 		String str = "";
 		if (!subjectProperty.getCityName().equals(""))

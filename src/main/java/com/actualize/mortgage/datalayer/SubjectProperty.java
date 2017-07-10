@@ -6,6 +6,8 @@ public class SubjectProperty extends Address {
 	private String PersonalPropertyAmount = "";
 	private String PersonalPropertyIncludedIndicator = "";
 	private String RealPropertyAmount = "";
+	private String unparsedLegalDescription = "";
+	
 	public String getPersonalPropertyAmount() {
 		return PersonalPropertyAmount;
 	}
@@ -23,5 +25,17 @@ public class SubjectProperty extends Address {
 	}
 	public void setRealPropertyAmount(String realPropertyAmount) {
 		RealPropertyAmount = realPropertyAmount;
+	}
+	/**
+	 * @return the unparsedLegalDescription
+	 */
+	public String getUnparsedLegalDescription() {
+		return unparsedLegalDescription;
+	}
+	/**
+	 * @param unparsedLegalDescription the unparsedLegalDescription to set
+	 */
+	public void setUnparsedLegalDescription(String unparsedLegalDescription) {
+		this.unparsedLegalDescription = unparsedLegalDescription;
 	}
 }
