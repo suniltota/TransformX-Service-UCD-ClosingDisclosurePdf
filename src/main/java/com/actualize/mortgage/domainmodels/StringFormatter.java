@@ -218,6 +218,8 @@ public enum StringFormatter {
 
 	static int integerValue(String str) {
 		try {
+			if(str.indexOf(".")!=-1) 
+				return Integer.valueOf(str.split("\\.")[0]);
 			return Integer.valueOf(str);
 		} catch (Exception e) {
 		}
