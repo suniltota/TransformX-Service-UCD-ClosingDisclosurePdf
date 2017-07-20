@@ -22,6 +22,7 @@ public enum StringFormatter {
 	YEARS,
 	ROUNDUPYEARS,
 	ROUNDUPPLUSONEYEAR,
+	ROUNDUPYEAR,
 	MONTHSORYEARS,
 	INTEGERSUFFIX,		// add the appropriate suffix e.g.st, nd, th
 	MONTH,			// Translate MISMO month (--nn) to month name
@@ -117,6 +118,9 @@ public enum StringFormatter {
 			break;
 		case ROUNDUPPLUSONEYEAR:
 			outStr = Integer.toString((int)Math.ceil((doubleValue(inStr)+12)/12));
+			break;
+		case ROUNDUPYEAR:
+			outStr = Integer.toString((int)Math.ceil((doubleValue(inStr))/12));
 			break;
 		case MONTHSORYEARS:
 			int months = (int)doubleValue(inStr) + 1;

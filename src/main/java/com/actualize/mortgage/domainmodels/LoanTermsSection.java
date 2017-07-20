@@ -115,7 +115,7 @@ public class LoanTermsSection implements Section {
 					.append(Bullet.BULLET)
 					.append(new FormattedText(text4_1_3,TABLE_TEXT))
 					.append(new FormattedText( 
-							StringFormatter.YEARS.formatString(closingMap.getClosingMapValue("NEGATIVE_AMORTIZATION_RULE.NegativeAmortizationLimitMonthsCount")),
+							StringFormatter.ROUNDUPYEAR.formatString(closingMap.getClosingMapValue("NEGATIVE_AMORTIZATION_RULE.NegativeAmortizationLimitMonthsCount")),
 							TABLE_TEXT_BOLD));
 			info = (new Region())
 					.append(para4_2)
