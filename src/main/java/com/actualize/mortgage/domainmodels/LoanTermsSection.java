@@ -169,7 +169,7 @@ public class LoanTermsSection implements Section {
 					.append(new FormattedText("Adjusts ", TABLE_TEXT))
 					.append(new FormattedText("every " + ("1".equals(years) ? "year" : (years + " years")), TABLE_TEXT_BOLD))
 					.append(new FormattedText(" starting in ", TABLE_TEXT))
-					.append(new FormattedText("year " + StringFormatter.ROUNDUPYEARS.formatString(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.FirstRateChangeMonthsCount")),
+					.append(new FormattedText("year " + StringFormatter.ROUNDUPPLUSONEYEAR.formatString(closingMap.getClosingMapValue("INTEREST_RATE_LIFETIME_ADJUSTMENT_RULE.FirstRateChangeMonthsCount")),
 							TABLE_TEXT));
 			Paragraph text4_2_3 = (new Paragraph())
 					.append(Bullet.BULLET)
