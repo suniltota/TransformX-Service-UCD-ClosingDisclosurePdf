@@ -21,6 +21,7 @@ public enum StringFormatter {
 	INTERESTRATE,         // Whole number if no significant digits after decimal. Otherwise, minimum of two digits after decimal, maximum three digits.
 	YEARS,
 	ROUNDUPYEARS,
+	ROUNDUPPLUSONEYEAR,
 	MONTHSORYEARS,
 	INTEGERSUFFIX,		// add the appropriate suffix e.g.st, nd, th
 	MONTH,			// Translate MISMO month (--nn) to month name
@@ -113,6 +114,9 @@ public enum StringFormatter {
 			break;
 		case ROUNDUPYEARS:
 			outStr = Integer.toString((int)Math.ceil((doubleValue(inStr)+1)/12.0));
+			break;
+		case ROUNDUPPLUSONEYEAR:
+			outStr = Integer.toString((int)Math.ceil((doubleValue(inStr)+12)/12));
 			break;
 		case MONTHSORYEARS:
 			int months = (int)doubleValue(inStr) + 1;
