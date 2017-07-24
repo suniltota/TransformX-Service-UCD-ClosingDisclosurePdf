@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.actualize.mortgage.domainmodels.PDFResponse;
-import com.actualize.mortgage.services.impl.ClosingDisclosurePDFServicesImpl;
 import com.actualize.mortgage.services.impl.IClosingDisclosurePDFServices;
 /**
  * This class is the rest controller which defines all the APIs associated for Closing Disclosure PDF generation 
@@ -56,4 +55,6 @@ public class ClosingDisclosurePDFApiImpl {
     	LOG.info("Service call: /ping for CD");
         return "The service for generating PDF for closing disclosure is running and ready to accept your request";
     }
+    
+    
 }

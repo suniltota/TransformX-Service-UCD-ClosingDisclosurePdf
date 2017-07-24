@@ -1378,8 +1378,8 @@ public class PopulateInputData {
 				"FullyIndexedInitialPrincipalAndInterestPaymentAmount",
 				"PartialPaymentAllowedIndicator", "PaymentFrequencyType",
 				"PaymentOptionIndicator", "ScheduledFirstPaymentDate",
-				"SeasonalPaymentPeriodEndMonth",
-				"SeasonalPaymentPeriodStartMonth");
+				"SeasonalPaymentPeriodEndMonth","gse:TotalOptionalPaymentCount",
+				"gse:TotalStepPaymentCount","SeasonalPaymentPeriodStartMonth");
 
 		helperGetContainer(thisRoot, closingMap, "PROJECTED_PAYMENT",
 				"ProjectedPaymentPrincipalAndInterestMinimumPaymentAmount",
