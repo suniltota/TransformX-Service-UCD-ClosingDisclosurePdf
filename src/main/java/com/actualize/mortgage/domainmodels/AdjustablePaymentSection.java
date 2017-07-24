@@ -77,11 +77,11 @@ public class AdjustablePaymentSection implements Section {
 		apDataGrid.setCellBorder(row, 0, Position.RIGHT, Color.BLACK, borderWidth);
 
 		if(closingMap.getClosingMapValue("PAYMENT_RULE.PaymentOptionIndicator").equalsIgnoreCase("true")){
-			int diff = monthsBetween(closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_ADJUSTMENT_LIMITED_PAYMENT_OPTION.LimitedPrincipalAndInterestPaymentEffectiveDate"), 
-					closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_ADJUSTMENT_LIMITED_PAYMENT_OPTION.LimitedPrincipalAndInterestPaymentPeriodEndDate"));
+			/*int diff = monthsBetween(closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_ADJUSTMENT_LIMITED_PAYMENT_OPTION.LimitedPrincipalAndInterestPaymentEffectiveDate"), 
+					closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_ADJUSTMENT_LIMITED_PAYMENT_OPTION.LimitedPrincipalAndInterestPaymentPeriodEndDate"));*/
 			Paragraph para = (new Paragraph())
 					.append(new FormattedText(" For your first ",Text.TABLE_TEXT))
-					.append(new FormattedText(Integer.toString(diff),Text.TABLE_TEXT))
+					.append(new FormattedText(closingMap.getClosingMapValue("PAYMENT_RULE.gse:TotalOptionalPaymentCount"),Text.TABLE_TEXT))
 									.append(new FormattedText(" payments",Text.TABLE_TEXT));
 			apDataGrid.setCellText(row, 1, new FormattedText(" YES",Text.TABLE_TEXT_BOLD));
 			apDataGrid.setCellText(row, 2, para);
@@ -93,12 +93,12 @@ public class AdjustablePaymentSection implements Section {
 		//STEP PAYMNENTS -----------------------------------------------------------------------------------------------------------------
 		apDataGrid.setLineBorder(row, Position.TOP, Color.BLACK, borderWidth);
 		apDataGrid.setCellBorder(row, 0, Position.RIGHT, Color.BLACK, borderWidth);
-		if(closingMap.getClosingMapValue("AMORTIZATION_RULE.AmortizationType").equalsIgnoreCase("Step")){
-			int diff = monthsBetween(closingMap.getClosingMapValue("PAYMENT_RULE.ScheduledFirstPaymentDate"), 
-					closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_PAYMENT_LIFETIME_ADJUSTMENT_RULE.FinalPrincipalAndInterestPaymentChangeDate"));
+		if(!closingMap.getClosingMapValue("PAYMENT_RULE.gse:TotalStepPaymentCount").isEmpty()){
+		/*	int diff = monthsBetween(closingMap.getClosingMapValue("PAYMENT_RULE.ScheduledFirstPaymentDate"), 
+					closingMap.getClosingMapValue("PRINCIPAL_AND_INTEREST_PAYMENT_LIFETIME_ADJUSTMENT_RULE.FinalPrincipalAndInterestPaymentChangeDate"));*/
 			Paragraph para = (new Paragraph())
 					.append(new FormattedText(" For your first ",Text.TABLE_TEXT))
-					.append(new FormattedText( Integer.toString(diff), Text.TABLE_TEXT))
+					.append(new FormattedText( closingMap.getClosingMapValue("PAYMENT_RULE.gse:TotalStepPaymentCount"), Text.TABLE_TEXT))
 					.append(new FormattedText(" payments",Text.TABLE_TEXT));
 			apDataGrid.setCellText(row, 1, new FormattedText(" YES",Text.TABLE_TEXT_BOLD));
 			apDataGrid.setCellText(row, 2, para);
