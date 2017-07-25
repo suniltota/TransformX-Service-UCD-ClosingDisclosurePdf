@@ -239,7 +239,7 @@ public class LoanTermsSection implements Section {
 				}
 			}
 			para = new Region();
-			if (closingMap.getClosingMapValue("LOAN_DETAIL.InterestRateIncreaseIndicator").equalsIgnoreCase("true")) {
+			if (closingMap.getClosingMapValue("LOAN_DETAIL.InterestRateIncreaseIndicator").equalsIgnoreCase("true") && !"Fixed".equalsIgnoreCase(closingMap.getClosingMapValue("AMORTIZATION_RULE.AmortizationType"))) {
 				//if (!adjustment.equals("")) {
 					String years = StringFormatter.YEARS.formatString(adjustment);
 					Paragraph text4_3_1 = (new Paragraph())
@@ -265,21 +265,24 @@ public class LoanTermsSection implements Section {
 				}
 			}
 			if (closingMap.getClosingMapValue("LOAN_DETAIL.InterestOnlyIndicator").equalsIgnoreCase("true")){
-				Paragraph text4_3_3 = (new Paragraph())
-					.append(Bullet.BULLET)
-					.append(new FormattedText("Includes ", TABLE_TEXT))
-					.append(new FormattedText("only interest", TABLE_TEXT_BOLD))
-					.append(new FormattedText(" and ", TABLE_TEXT))
-					.append(new FormattedText("no principal", TABLE_TEXT_BOLD))
-					.append(new FormattedText(" until " + StringFormatter.MONTHSORYEARS.formatString(closingMap.getClosingMapValue("INTEREST_ONLY.InterestOnlyTermMonthsCount")),
-							TABLE_TEXT));
+				if("Fixed".equalsIgnoreCase(closingMap.getClosingMapValue("AMORTIZATION_RULE.AmortizationType"))){
+					Paragraph text4_3_3 = (new Paragraph())
+						.append(Bullet.BULLET)
+						.append(new FormattedText("Includes ", TABLE_TEXT))
+						.append(new FormattedText("only interest", TABLE_TEXT_BOLD))
+						.append(new FormattedText(" and ", TABLE_TEXT))
+						.append(new FormattedText("no principal", TABLE_TEXT_BOLD))
+						.append(new FormattedText(" until " + StringFormatter.MONTHSORYEARS.formatString(closingMap.getClosingMapValue("INTEREST_ONLY.InterestOnlyTermMonthsCount")),
+								TABLE_TEXT));
+					para.append(text4_3_3);
+				}
 				Paragraph text4_3_4 = (new Paragraph())
 					.append(Bullet.BULLET)
 					.append(new FormattedText("See ", TABLE_TEXT))
 					.append(new FormattedText("AP Table on page 4", TABLE_TEXT_BOLD))
 					.append(new FormattedText(" for details", TABLE_TEXT));
-				para.append(text4_3_3)
-					.append(text4_3_4);
+				
+					para.append(text4_3_4);
 			}
 			dataGrid.getCell(2, 3).setForeground(para).setMargin(Direction.LEFT, -35f/72f).setMargin(Direction.TOP, 2f/72f);
 		} else {
