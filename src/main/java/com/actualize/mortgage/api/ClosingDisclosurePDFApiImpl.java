@@ -37,7 +37,7 @@ public class ClosingDisclosurePDFApiImpl {
 	 */
     @RequestMapping(value = "/{version}/pdf", method = { RequestMethod.POST })
     public List<PDFResponse> saveModifiedUCD(@PathVariable String version, @RequestBody String xmldoc) throws Exception {
-    	if(null != SecurityContextHolder.getContext())
+    	if(null != SecurityContextHolder.getContext().getAuthentication())
     		LOG.info("user "+SecurityContextHolder.getContext().getAuthentication().getName()+" used Service: CD MISMO XML to CD PDF");
     	else
     		LOG.info("user used Service: CD MISMO XML to CD PDF");
